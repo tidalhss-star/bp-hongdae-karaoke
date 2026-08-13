@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · hongdae-karaoke</title>
+  <meta name="description" content="hongdae-karaoke에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://hongdae-karaoke.maphoshirts.com/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* Reset & Base */
+ :root {
+ --color-primary: #1a1a1a;
+ --color-secondary: #fafaf5;
+ --color-accent: #c5a880;
+ --color-text-muted: #6b6b6b;
+ --font-serif: 'Georgia', 'Times New Roman', serif;
+ --font-sans: 'Helvetica Neue', 'Arial', sans-serif;
+ --spacing-unit: 24px;
+ --container-width: 720px;
+ }
+
+ * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+ body {
+ background-color: var(--color-secondary);
+ color: var(--color-primary);
+ font-family: var(--font-serif);
+ line-height: 1.8;
+ -webkit-font-smoothing: antialiased;
+ overflow-x: hidden;
+ }
+
+ a { text-decoration: none; color: inherit; transition: opacity 0.3s ease; }
+ a:hover { opacity: 0.7; }
+
+ /* Typography */
+ h1, h2, h3, h4 {
+ font-weight: 400;
+ letter-spacing: -0.02em;
+ margin-bottom: 1.5rem;
+ }
+
+ h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem; }
+ h2 { font-size: 2.25rem; border-bottom: 1px solid var(--color-primary); padding-bottom: 1rem; margin-top: 3rem; }
+ h3 { font-size: 1.5rem; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; color: var(--color-accent); }
+ 
+ p { margin-bottom: 1.5rem; font-size: 1.125rem; color: #333; }
+
+ /* Utility */
+ .container {
+ max-width: var(--container-width);
+ margin: 0 auto;
+ padding: 0 var(--spacing-unit);
+ }
+
+ .text-accent { color: var(--color-accent); }
+ .drop-cap::first-letter {
+ float: left;
+ font-size: 4.5rem;
+ line-height: 0.8;
+ padding-right: 12px;
+ padding-top: 4px;
+ font-family: var(--font-serif);
+ color: var(--color-primary);
+ }
+
+ /* Header & Nav */
+ header {
+ padding: 2rem 0;
+ position: absolute;
+ width: 100%;
+ top: 0;
+ z-index: 10;
+ }
+
+ .nav-wrapper {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+
+ .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: -0.05em; }
+ 
+ .btn-call {
+ border: 1px solid var(--color-primary);
+ padding: 0.75rem 1.5rem;
+ font-family: var(--font-sans);
+ font-size: 0.8rem;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ background: transparent;
+ cursor: pointer;
+ }
+
+ .btn-call:hover {
+ background: var(--color-primary);
+ color: var(--color-secondary);
+ }
+
+ /* Hero Section */
+ .hero {
+ height: 85vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ position: relative;
+ background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+ color: var(--color-secondary);
+ margin-bottom: 6rem;
+ }
+
+ .hero-overlay {
+ position: absolute;
+ top: 0; left: 0; width: 100%; height: 100%;
+ background: radial-gradient(circle at center, transparent 0%, #1a1a1a 90%);
+ }
+
+ .hero-content {
+ position: relative;
+ z-index: 2;
+ max-width: 600px;
+ padding: 0 20px;
+ }
+
+ .hero h1 { color: var(--color-secondary); }
+ .hero p { color: rgba(255,255,255,0.8); font-size: 1.25rem; }
+
+ .decorative-line {
+ width: 60px;
+ height: 1px;
+ background-color: var(--color-accent);
+ margin: 2rem auto;
+ }
+
+ /* Content Sections */
+ section { margin-bottom: 8rem; }
+
+ .feature-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 4rem;
+ margin-top: 3rem;
+ }
+
+ .feature-item h4 {
+ font-family: var(--font-sans);
+ font-size: 0.9rem;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ margin-bottom: 1rem;
+ color: var(--color-accent);
+ }
+
+ /* Reviews */
+ .review-card {
+ border-top: 1px solid rgba(0,0,0,0.1);
+ padding-top: 2rem;
+ margin-bottom: 2rem;
+ }
+
+ .review-meta {
+ display: flex;
+ justify-content: space-between;
+ font-family: var(--font-sans);
+ font-size: 0.75rem;
+ color: var(--color-text-muted);
+ margin-bottom: 1rem;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ }
+
+ .stars { color: var(--color-accent); letter-spacing: 3px; }
+
+ /* Footer */
+ footer {
+ border-top: 1px solid var(--color-primary);
+ padding: 4rem 0;
+ margin-top: 6rem;
+ }
+
+ .footer-content {
+ display: flex;
+ flex-direction: column;
+ gap: 2rem;
+ font-family: var(--font-sans);
+ font-size: 0.85rem;
+ color: var(--color-text-muted);
+ }
+
+ .footer-info strong { color: var(--color-primary); display: block; margin-bottom: 0.5rem; }
+
+ /* Responsive */
+ @media (max-width: 768px) {
+ h1 { font-size: 2.5rem; }
+ .feature-grid { grid-template-columns: 1fr; gap: 2rem; }
+ .hero { height: 70vh; }
+ .container { padding: 0 1.5rem; }
+ .drop-cap::first-letter { font-size: 3.5rem; }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · hongdae-karaoke">
+  <meta property="og:description" content="hongdae-karaoke에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://hongdae-karaoke.maphoshirts.com/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <div class="container nav-wrapper">
+ <div class="logo">HONGDAE<span class="text-accent">.PRIME</span></div>
+ 
+ </div>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 32개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0243.html">홍대 노래방 추천 정보와 공덕 셔츠룸 이용 가이드</a>
+        <p class="post-item__summary">공덕 지역에서 새로운 유형의 유흥 공간을 찾는다면 몇 가지 충족해야 할 조건들이 있습니다. 우선 접근성이 좋아야 하며, 서비스의 품질과 공간의 프라이빗함이 충분히 보장되는지를 확인해야 합니다. 홍대</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0244.html">홍대 노래방 추천과 연남 유흥업소 선정 비교 기준</a>
+        <p class="post-item__summary">연남 지역에서 저녁 시간을 계획할 때 여러분은 어떤 기준으로 장소를 고르시나요? 단순히 분위기만 보고 결정했다가 후회한 적은 없는지 스스로 질문을 던져볼 필요가 있습니다. 홍대 노래방 추천을 찾던 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0245.html">홍대 노래방 추천 대신 살펴보는 마곡 가라오케 추천정보 분석 가이드</a>
+        <p class="post-item__summary">많은 분이 홍대 노래방 추천 리스트를 확인하지만, 정작 마곡 지역의 새로운 문화를 즐기려는 분들은 체계적인 검증이 필요합니다. 업체 선정의 첫 단계는 공식 채널을 통한 정보 확보입니다. 실제 운영 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0246.html">홍대 노래방 추천 정보를 넘어 마곡 유흥 추천정보 합리적 선택법</a>
+        <p class="post-item__summary">홍대 노래방 추천 게시글을 탐색하던 분들이 마곡 지역으로 눈을 돌릴 때 가장 먼저 맞닥뜨리는 고민은 가격 체계입니다. 보통 정찰제로 운영되는 곳과 유동적인 주대 모델을 적용하는 곳 중 어느 쪽이 유</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0247.html">홍대 노래방 추천 실패 사례와 합정 노래방 추천정보 예약 핵심</a>
+        <p class="post-item__summary">홍대 노래방 추천 리스트를 검색하다 보면 흔히 접하는 실수 중 하나는 현장 상황을 고려하지 않은 무계획 방문입니다. 인기 시간대에는 자리가 없는 경우가 많음에도 불구하고 단순히 인기 순위만 믿고 이</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0248.html">홍대 노래방 추천 대신 보는 연남 클럽 추천정보 방문 전 체크리스트</a>
+        <p class="post-item__summary">홍대 노래방 추천 콘텐츠를 즐겨 찾는 분들이라면 연남 지역의 역동적인 분위기에도 관심이 많을 것입니다. 성공적인 밤을 보내기 위해서는 단순히 입소문만 믿기보다 객관적인 지표를 체크해야 합니다. 위치</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0249.html">홍대 노래방 추천 시설에서 경험하는 합정 셔츠룸 추천정보 가이드</a>
+        <p class="post-item__summary">친구들과 갑작스러운 모임을 기획하다 보면 홍대 노래방 추천 장소를 찾게 되곤 합니다. 하지만 단순히 노래만 부르는 공간을 넘어 조금 더 색다른 경험을 원한다면 합정 지역으로 눈길을 돌려보는 것도 좋</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0250.html">홍대 노래방 추천 검색 시 흔히 오해하는 공덕 가라오케 추천정보</a>
+        <p class="post-item__summary">많은 이들이 홍대 노래방 추천 리스트를 확인하며 단순히 저렴한 곳만 찾으면 된다고 생각하곤 합니다. 하지만 가라오케의 본질적인 매력은 음향 장비의 질과 서비스의 수준에 있다는 사실을 간과해서는 안 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0251.html">홍대 노래방 추천 리스트와 비교하는 상수 마사지 추천정보 활용법</a>
+        <p class="post-item__summary">쾌적한 환경, 전문적인 서비스, 그리고 합리적인 가격이라는 세 가지 조건이 모두 충족되어야 만족스러운 휴식을 취할 수 있습니다. 홍대 노래방 추천 장소를 찾던 분들도 피로 해소를 위해 상수 지역의 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0252.html">홍대 노래방 추천 업체 선정 시 망원 노래방 추천정보 비교 기준</a>
+        <p class="post-item__summary">여러분은 오늘 밤 어떤 공간에서 스트레스를 풀 계획을 세우고 계십니까? 홍대 노래방 추천 키워드로 검색을 시작했더라도 막상 결정은 망원 지역의 한적한 곳으로 내리는 경우가 많습니다. 어떤 기준을 가</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0253.html">홍대 노래방 추천을 통한 안전한 시설 이용 및 후기 검증 절차 안내</a>
+        <p class="post-item__summary">홍대 인근에서 즐거운 시간을 보내기 위해 적절한 장소를 찾는 과정은 체계적인 접근이 필요합니다. 먼저 자신의 예산과 선호하는 시설 수준을 명확히 설정해야 혼란을 줄일 수 있습니다. 그다음으로 온라인</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260731-0044.html">홍대 노래방 추천 기준과 마포 지역 모임 공간 활용 안내</a>
+        <p class="post-item__summary">서울 마포구 홍대 상권은 젊은 층과 직장인들이 자주 찾는 대표적인 엔터테인먼트 구역으로, 다양한 형태의 노래연습장과 유흥 시설이 위치해 있습니다. 개인 방문자를 위한 소형 코인 노래방부터 대규모 회</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
